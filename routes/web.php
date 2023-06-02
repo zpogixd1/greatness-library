@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 if (App::environment('production')) {
     URL::forceScheme('https');
 }
@@ -13,10 +12,10 @@ Route::get('/privacy-and-terms', [App\Http\Controllers\HomeController::class, 'p
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
     Route::redirect('/home', '/', 301);
-
     Route::resource('/borrow', App\Http\Controllers\Admin\BorrowController::class);
     
     Route::post('/users/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    
     // Route::view('/borrow', 'app.borrow')->name('borrow');
     Route::get('/borrow', [App\Http\Controllers\Admin\BorrowController::class, 'borrow'])->name('borrow');
     Route::view('/visitor', 'app.components.visitor')->name('visitor');
