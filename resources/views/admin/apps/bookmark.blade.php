@@ -13,7 +13,6 @@
 		@slot('breadcrumb_title')
 			<h3>Bookmarks</h3>
 		@endslot
-		<li class="breadcrumb-item">Apps</li>
 		<li class="breadcrumb-item active">Bookmarks</li>
 	@endcomponent
 	
